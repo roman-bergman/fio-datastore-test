@@ -8,7 +8,7 @@
 #DEFINE
 disk = $1
 
-if ( ! $disk ) {
+if [ ! $disk ] {
     echo "Disk not set!"
     exit 1
 }
