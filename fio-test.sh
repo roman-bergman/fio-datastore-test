@@ -6,16 +6,17 @@
 # LICENSE: AGPL-3.0
 
 #DEFINE
-disk = $1
+disk=$1
 
-if [ ! $disk ] {
+if [ -z "$disk" ] 
+then
     echo "Disk not set!"
     exit 1
-}
+fi
 
 fio_run () {
-    test_name = $1
-    disk = $2
+    test_name=$1
+    disk=$2
 
     echo "RUN TEST: $test_name"
     fio --name="$test_name" --filename="$disk" --output-forman=json --ioengine=libaio --direct=1 --randrepeat=0 "$@" > "$test_name"-"$disk".json
