@@ -19,7 +19,7 @@ fio_run () {
     disk=$2
 
     echo "RUN TEST: $test_name"
-    fio --name="$test_name" --filename="$disk" --output-forman=json --ioengine=libaio --direct=1 --randrepeat=0 "$@" > "$test_name".json
+    fio --name="$test_name" --filename="$disk" --output-format=json --ioengine=libaio --direct=1 --randrepeat=0 "$@" > "$test_name".json
     sleep 10
 }
 
